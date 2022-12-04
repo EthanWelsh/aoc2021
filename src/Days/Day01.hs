@@ -21,19 +21,38 @@ runDay = R.runDay inputParser partA partB
 
 ------------ PARSER ------------
 inputParser :: Parser Input
-inputParser = error "Not implemented yet!"
+inputParser = decimal `sepBy` endOfLine
 
 ------------ TYPES ------------
-type Input = Void
+type Input = [Int]
 
-type OutputA = Void
+type OutputA = Int
 
-type OutputB = Void
+type OutputB = Int
 
 ------------ PART A ------------
+
+pairs :: [Int] -> [(Int, Int)]
+pairs [] = []
+pairs [x] = []
+pairs (x:y:ys) = (x, y) : pairs (y : ys)
+
+countIncreases :: [(Int, Int)] -> Int
+countIncreases pairs = length $ filter (\(a, b) -> b > a) pairs
+
 partA :: Input -> OutputA
-partA = error "Not implemented yet!"
+partA input = countIncreases $ pairs input
 
 ------------ PART B ------------
+
+sum' :: (Int, Int, Int) -> Int
+sum' (a, b, c) = a + b + c
+
+triples :: [Int] -> [(Int, Int, Int)]
+triples [] = []
+triples [x] = []
+triples [x, y] = []
+triples (x:y:z:zs) = (x, y, z) : triples (y:z:zs)
+
 partB :: Input -> OutputB
-partB = error "Not implemented yet!"
+partB input = countIncreases $ pairs (map sum' (triples input))
