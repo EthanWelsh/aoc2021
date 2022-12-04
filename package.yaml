@@ -1,12 +1,12 @@
-name:                aoc2022
+name:                aoc2021
 version:             2022.0
-github:              "EthanWelsh/aoc2022"
+github:              "EthanWelsh/aoc2021"
 author:              "Ethan Welsh"
 
 extra-source-files:
 - README.md
 
-description:         Ethan's solutions to Advent of Code 2022
+description:         Ethan's solutions to Advent of Code 2021
 
 dependencies:
 - base >= 4.7 && < 5
@@ -56,4 +56,4 @@ executables:
     - GADTs
     - GHC2021
     dependencies:
-    - aoc2022
+    - aoc2021
